@@ -1,0 +1,11 @@
+Warning (10268): Verilog HDL information at DE2_115.sv(590): always construct contains both blocking and non-blocking assignments File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 590
+Info (10281): Verilog HDL Declaration information at DE2_115.sv(812): object "Q" differs only in case from object "q" in the same scope File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 812
+Info (10281): Verilog HDL Declaration information at DE2_115.sv(1106): object "left" differs only in case from object "LEFT" in the same scope File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 1106
+Info (10281): Verilog HDL Declaration information at DE2_115.sv(1106): object "right" differs only in case from object "RIGHT" in the same scope File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 1106
+Info (10281): Verilog HDL Declaration information at DE2_115.sv(1106): object "up" differs only in case from object "UP" in the same scope File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 1106
+Info (10281): Verilog HDL Declaration information at DE2_115.sv(1106): object "down" differs only in case from object "DOWN" in the same scope File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 1106
+Info (10281): Verilog HDL Declaration information at DE2_115.sv(1212): object "latchpulse" differs only in case from object "LATCHPULSE" in the same scope File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 1212
+Info (10281): Verilog HDL Declaration information at DE2_115.sv(1212): object "up" differs only in case from object "UP" in the same scope File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 1212
+Info (10281): Verilog HDL Declaration information at DE2_115.sv(1212): object "down" differs only in case from object "DOWN" in the same scope File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 1212
+Info (10281): Verilog HDL Declaration information at DE2_115.sv(1212): object "left" differs only in case from object "LEFT" in the same scope File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 1212
+Info (10281): Verilog HDL Declaration information at DE2_115.sv(1212): object "right" differs only in case from object "RIGHT" in the same scope File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 1212

@@ -1,0 +1,1190 @@
+Analysis & Synthesis report for DE2_115
+Sat Jul  1 21:34:28 2023
+Quartus Prime Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |DE2_115|vgawrapper:vgawrapper|vga:vga|videoGen:videoGen|dirfsm:dir2|state
+  9. State Machine - |DE2_115|vgawrapper:vgawrapper|vga:vga|videoGen:videoGen|dirfsm:dir|state
+ 10. State Machine - |DE2_115|vgawrapper:vgawrapper|vga:vga|controlfsm3:p2|state
+ 11. State Machine - |DE2_115|vgawrapper:vgawrapper|vga:vga|controlfsm3:p1|state
+ 12. Registers Removed During Synthesis
+ 13. Removed Registers Triggering Further Register Optimizations
+ 14. General Register Statistics
+ 15. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 16. Parameter Settings for User Entity Instance: vgawrapper:vgawrapper|vga:vga|controlfsm3:p1
+ 17. Parameter Settings for User Entity Instance: vgawrapper:vgawrapper|vga:vga|controlfsm3:p2
+ 18. Parameter Settings for User Entity Instance: vgawrapper:vgawrapper|vga:vga|vgaController:vgaCont
+ 19. Parameter Settings for User Entity Instance: vgawrapper:vgawrapper|vga:vga|videoGen:videoGen|counter:counterx
+ 20. Parameter Settings for User Entity Instance: vgawrapper:vgawrapper|vga:vga|videoGen:videoGen|counter:countery
+ 21. Parameter Settings for User Entity Instance: vgawrapper:vgawrapper|vga:vga|videoGen:videoGen|counter:counter2x
+ 22. Parameter Settings for User Entity Instance: vgawrapper:vgawrapper|vga:vga|videoGen:videoGen|counter:counter2y
+ 23. Port Connectivity Checks: "vgawrapper:vgawrapper|vga:vga|videoGen:videoGen|graphics:graphics1"
+ 24. Port Connectivity Checks: "vgawrapper:vgawrapper|vga:vga|videoGen:videoGen|trail:p2t50"
+ 25. Port Connectivity Checks: "vgawrapper:vgawrapper|vga:vga|videoGen:videoGen|trail:t50"
+ 26. Port Connectivity Checks: "vgawrapper:vgawrapper|vga:vga|videoGen:videoGen|counter:counter2x"
+ 27. Port Connectivity Checks: "vgawrapper:vgawrapper|vga:vga|videoGen:videoGen|counter:counterx"
+ 28. Port Connectivity Checks: "vgawrapper:vgawrapper|vga:vga"
+ 29. Port Connectivity Checks: "vgawrapper:vgawrapper"
+ 30. Post-Synthesis Netlist Statistics for Top Partition
+ 31. Elapsed Time Per Partition
+ 32. Analysis & Synthesis Messages
+ 33. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2023  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                        ;
++------------------------------------+------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Sat Jul  1 21:34:28 2023          ;
+; Quartus Prime Version              ; 22.1std.1 Build 917 02/14/2023 SC Lite Edition ;
+; Revision Name                      ; DE2_115                                        ;
+; Top-level Entity Name              ; DE2_115                                        ;
+; Family                             ; Cyclone IV E                                   ;
+; Total logic elements               ; 93                                             ;
+;     Total combinational functions  ; 87                                             ;
+;     Dedicated logic registers      ; 41                                             ;
+; Total registers                    ; 41                                             ;
+; Total pins                         ; 407                                            ;
+; Total virtual pins                 ; 0                                              ;
+; Total memory bits                  ; 0                                              ;
+; Embedded Multiplier 9-bit elements ; 0                                              ;
+; Total PLLs                         ; 0                                              ;
++------------------------------------+------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; EP4CE115F29C7      ;                    ;
+; Top-level entity name                                            ; DE2_115            ; DE2_115            ;
+; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 20          ;
+; Maximum allowed            ; 14          ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 14          ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-14        ;   0.0%      ;
++----------------------------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                  ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path              ; Library ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------+---------+
+; DE2_115.sv                       ; yes             ; User SystemVerilog HDL File  ; C:/Users/uchoa/Documents/evpro/DE2_115.sv ;         ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------+---------+
+
+
++-----------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary               ;
++---------------------------------------------+-------------+
+; Resource                                    ; Usage       ;
++---------------------------------------------+-------------+
+; Estimated Total logic elements              ; 93          ;
+;                                             ;             ;
+; Total combinational functions               ; 87          ;
+; Logic element usage by number of LUT inputs ;             ;
+;     -- 4 input functions                    ; 41          ;
+;     -- 3 input functions                    ; 5           ;
+;     -- <=2 input functions                  ; 41          ;
+;                                             ;             ;
+; Logic elements by mode                      ;             ;
+;     -- normal mode                          ; 59          ;
+;     -- arithmetic mode                      ; 28          ;
+;                                             ;             ;
+; Total registers                             ; 41          ;
+;     -- Dedicated logic registers            ; 41          ;
+;     -- I/O registers                        ; 0           ;
+;                                             ;             ;
+; I/O pins                                    ; 407         ;
+;                                             ;             ;
+; Embedded Multiplier 9-bit elements          ; 0           ;
+;                                             ;             ;
+; Maximum fan-out node                        ; SW[0]~input ;
+; Maximum fan-out                             ; 41          ;
+; Total fan-out                               ; 938         ;
+; Average fan-out                             ; 0.90        ;
++---------------------------------------------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                       ;
++----------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------+---------------+--------------+
+; Compilation Hierarchy Node       ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                          ; Entity Name   ; Library Name ;
++----------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------+---------------+--------------+
+; |DE2_115                         ; 87 (0)              ; 41 (0)                    ; 0           ; 0            ; 0       ; 0         ; 407  ; 0            ; |DE2_115                                                     ; DE2_115       ; work         ;
+;    |vgawrapper:vgawrapper|       ; 87 (0)              ; 41 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE2_115|vgawrapper:vgawrapper                               ; vgawrapper    ; work         ;
+;       |vga:vga|                  ; 87 (1)              ; 41 (1)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE2_115|vgawrapper:vgawrapper|vga:vga                       ; vga           ; work         ;
+;          |controlfsm3:p1|        ; 41 (41)             ; 20 (20)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE2_115|vgawrapper:vgawrapper|vga:vga|controlfsm3:p1        ; controlfsm3   ; work         ;
+;          |vgaController:vgaCont| ; 45 (45)             ; 20 (20)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE2_115|vgawrapper:vgawrapper|vga:vga|vgaController:vgaCont ; vgaController ; work         ;
++----------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------+---------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++--------------------------------------------------------------------------------------------+
+; State Machine - |DE2_115|vgawrapper:vgawrapper|vga:vga|videoGen:videoGen|dirfsm:dir2|state ;
++-------------+------------+----------+-------------+----------------------------------------+
+; Name        ; state.DOWN ; state.UP ; state.RIGHT ; state.LEFT                             ;
++-------------+------------+----------+-------------+----------------------------------------+
+; state.RIGHT ; 0          ; 0        ; 0           ; 0                                      ;
+; state.LEFT  ; 0          ; 0        ; 1           ; 1                                      ;
+; state.UP    ; 0          ; 1        ; 1           ; 0                                      ;
+; state.DOWN  ; 1          ; 0        ; 1           ; 0                                      ;
++-------------+------------+----------+-------------+----------------------------------------+
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------+
+; State Machine - |DE2_115|vgawrapper:vgawrapper|vga:vga|videoGen:videoGen|dirfsm:dir|state ;
++-------------+------------+----------+-------------+---------------------------------------+
+; Name        ; state.DOWN ; state.UP ; state.RIGHT ; state.LEFT                            ;
++-------------+------------+----------+-------------+---------------------------------------+
+; state.RIGHT ; 0          ; 0        ; 0           ; 0                                     ;
+; state.LEFT  ; 0          ; 0        ; 1           ; 1                                     ;
+; state.UP    ; 0          ; 1        ; 1           ; 0                                     ;
+; state.DOWN  ; 1          ; 0        ; 1           ; 0                                     ;
++-------------+------------+----------+-------------+---------------------------------------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |DE2_115|vgawrapper:vgawrapper|vga:vga|controlfsm3:p2|state                                                                             ;
++------------------+------------+------------+----------+-----------------+------------------+-------------+-------------+------------------+-------------+
+; Name             ; state.LEFT ; state.DOWN ; state.UP ; state.WAITSTART ; state.WAITSELECT ; state.WAITB ; state.WAITA ; state.LATCHPULSE ; state.RIGHT ;
++------------------+------------+------------+----------+-----------------+------------------+-------------+-------------+------------------+-------------+
+; state.LATCHPULSE ; 0          ; 0          ; 0        ; 0               ; 0                ; 0           ; 0           ; 0                ; 0           ;
+; state.WAITA      ; 0          ; 0          ; 0        ; 0               ; 0                ; 0           ; 1           ; 1                ; 0           ;
+; state.WAITB      ; 0          ; 0          ; 0        ; 0               ; 0                ; 1           ; 0           ; 1                ; 0           ;
+; state.WAITSELECT ; 0          ; 0          ; 0        ; 0               ; 1                ; 0           ; 0           ; 1                ; 0           ;
+; state.WAITSTART  ; 0          ; 0          ; 0        ; 1               ; 0                ; 0           ; 0           ; 1                ; 0           ;
+; state.UP         ; 0          ; 0          ; 1        ; 0               ; 0                ; 0           ; 0           ; 1                ; 0           ;
+; state.DOWN       ; 0          ; 1          ; 0        ; 0               ; 0                ; 0           ; 0           ; 1                ; 0           ;
+; state.LEFT       ; 1          ; 0          ; 0        ; 0               ; 0                ; 0           ; 0           ; 1                ; 0           ;
+; state.RIGHT      ; 0          ; 0          ; 0        ; 0               ; 0                ; 0           ; 0           ; 1                ; 1           ;
++------------------+------------+------------+----------+-----------------+------------------+-------------+-------------+------------------+-------------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |DE2_115|vgawrapper:vgawrapper|vga:vga|controlfsm3:p1|state                                                                             ;
++------------------+------------+------------+----------+-----------------+------------------+-------------+-------------+------------------+-------------+
+; Name             ; state.LEFT ; state.DOWN ; state.UP ; state.WAITSTART ; state.WAITSELECT ; state.WAITB ; state.WAITA ; state.LATCHPULSE ; state.RIGHT ;
++------------------+------------+------------+----------+-----------------+------------------+-------------+-------------+------------------+-------------+
+; state.LATCHPULSE ; 0          ; 0          ; 0        ; 0               ; 0                ; 0           ; 0           ; 0                ; 0           ;
+; state.WAITA      ; 0          ; 0          ; 0        ; 0               ; 0                ; 0           ; 1           ; 1                ; 0           ;
+; state.WAITB      ; 0          ; 0          ; 0        ; 0               ; 0                ; 1           ; 0           ; 1                ; 0           ;
+; state.WAITSELECT ; 0          ; 0          ; 0        ; 0               ; 1                ; 0           ; 0           ; 1                ; 0           ;
+; state.WAITSTART  ; 0          ; 0          ; 0        ; 1               ; 0                ; 0           ; 0           ; 1                ; 0           ;
+; state.UP         ; 0          ; 0          ; 1        ; 0               ; 0                ; 0           ; 0           ; 1                ; 0           ;
+; state.DOWN       ; 0          ; 1          ; 0        ; 0               ; 0                ; 0           ; 0           ; 1                ; 0           ;
+; state.LEFT       ; 1          ; 0          ; 0        ; 0               ; 0                ; 0           ; 0           ; 1                ; 0           ;
+; state.RIGHT      ; 0          ; 0          ; 0        ; 0               ; 0                ; 0           ; 0           ; 1                ; 1           ;
++------------------+------------+------------+----------+-----------------+------------------+-------------+-------------+------------------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                                  ;
++-------------------------------------------------------------------------+---------------------------------------------------------------------------+
+; Register name                                                           ; Reason for Removal                                                        ;
++-------------------------------------------------------------------------+---------------------------------------------------------------------------+
+; vgawrapper:vgawrapper|vga:vga|controlfsm3:p2|upin                       ; Stuck at GND due to stuck port data_in                                    ;
+; vgawrapper:vgawrapper|vga:vga|controlfsm3:p2|downin                     ; Stuck at GND due to stuck port data_in                                    ;
+; vgawrapper:vgawrapper|vga:vga|controlfsm3:p2|leftin                     ; Stuck at GND due to stuck port data_in                                    ;
+; vgawrapper:vgawrapper|vga:vga|controlfsm3:p2|rightin                    ; Stuck at GND due to stuck port data_in                                    ;
+; vgawrapper:vgawrapper|vga:vga|controlfsm3:p1|upin                       ; Stuck at GND due to stuck port data_in                                    ;
+; vgawrapper:vgawrapper|vga:vga|controlfsm3:p1|downin                     ; Stuck at GND due to stuck port data_in                                    ;
+; vgawrapper:vgawrapper|vga:vga|controlfsm3:p1|leftin                     ; Stuck at GND due to stuck port data_in                                    ;
+; vgawrapper:vgawrapper|vga:vga|controlfsm3:p1|rightin                    ; Stuck at GND due to stuck port data_in                                    ;
+; vgawrapper:vgawrapper|vga:vga|videoGen:videoGen|dirfsm:dir2|state.RIGHT ; Lost fanout                                                               ;
+; vgawrapper:vgawrapper|vga:vga|videoGen:videoGen|dirfsm:dir2|state.LEFT  ; Lost fanout                                                               ;
+; vgawrapper:vgawrapper|vga:vga|videoGen:videoGen|dirfsm:dir2|state.DOWN  ; Lost fanout                                                               ;
+; vgawrapper:vgawrapper|vga:vga|videoGen:videoGen|dirfsm:dir|state.RIGHT  ; Lost fanout                                                               ;
+; vgawrapper:vgawrapper|vga:vga|videoGen:videoGen|dirfsm:dir|state.LEFT   ; Lost fanout                                                               ;
+; vgawrapper:vgawrapper|vga:vga|videoGen:videoGen|dirfsm:dir|state.DOWN   ; Lost fanout                                                               ;
+; vgawrapper:vgawrapper|vga:vga|videoGen:videoGen|dirfsm:dir2|state~4     ; Lost fanout                                                               ;
+; vgawrapper:vgawrapper|vga:vga|videoGen:videoGen|dirfsm:dir2|state~5     ; Lost fanout                                                               ;
+; vgawrapper:vgawrapper|vga:vga|videoGen:videoGen|dirfsm:dir|state~4      ; Lost fanout                                                               ;
+; vgawrapper:vgawrapper|vga:vga|videoGen:videoGen|dirfsm:dir|state~5      ; Lost fanout                                                               ;
+; vgawrapper:vgawrapper|vga:vga|controlfsm3:p2|state~4                    ; Lost fanout                                                               ;
+; vgawrapper:vgawrapper|vga:vga|controlfsm3:p2|state~5                    ; Lost fanout                                                               ;
+; vgawrapper:vgawrapper|vga:vga|controlfsm3:p2|state~6                    ; Lost fanout                                                               ;
+; vgawrapper:vgawrapper|vga:vga|controlfsm3:p1|state~4                    ; Lost fanout                                                               ;
+; vgawrapper:vgawrapper|vga:vga|controlfsm3:p1|state~5                    ; Lost fanout                                                               ;
+; vgawrapper:vgawrapper|vga:vga|controlfsm3:p1|state~6                    ; Lost fanout                                                               ;
+; vgawrapper:vgawrapper|vga:vga|videoGen:videoGen|dirfsm:dir2|state.UP    ; Lost fanout                                                               ;
+; vgawrapper:vgawrapper|vga:vga|videoGen:videoGen|dirfsm:dir|state.UP     ; Lost fanout                                                               ;
+; vgawrapper:vgawrapper|vga:vga|controlfsm3:p2|count[10]                  ; Merged with vgawrapper:vgawrapper|vga:vga|controlfsm3:p1|count[10]        ;
+; vgawrapper:vgawrapper|vga:vga|controlfsm3:p2|count[9]                   ; Merged with vgawrapper:vgawrapper|vga:vga|controlfsm3:p1|count[9]         ;
+; vgawrapper:vgawrapper|vga:vga|controlfsm3:p2|count[8]                   ; Merged with vgawrapper:vgawrapper|vga:vga|controlfsm3:p1|count[8]         ;
+; vgawrapper:vgawrapper|vga:vga|controlfsm3:p2|count[7]                   ; Merged with vgawrapper:vgawrapper|vga:vga|controlfsm3:p1|count[7]         ;
+; vgawrapper:vgawrapper|vga:vga|controlfsm3:p2|count[6]                   ; Merged with vgawrapper:vgawrapper|vga:vga|controlfsm3:p1|count[6]         ;
+; vgawrapper:vgawrapper|vga:vga|controlfsm3:p2|count[5]                   ; Merged with vgawrapper:vgawrapper|vga:vga|controlfsm3:p1|count[5]         ;
+; vgawrapper:vgawrapper|vga:vga|controlfsm3:p2|count[4]                   ; Merged with vgawrapper:vgawrapper|vga:vga|controlfsm3:p1|count[4]         ;
+; vgawrapper:vgawrapper|vga:vga|controlfsm3:p2|count[3]                   ; Merged with vgawrapper:vgawrapper|vga:vga|controlfsm3:p1|count[3]         ;
+; vgawrapper:vgawrapper|vga:vga|controlfsm3:p2|count[2]                   ; Merged with vgawrapper:vgawrapper|vga:vga|controlfsm3:p1|count[2]         ;
+; vgawrapper:vgawrapper|vga:vga|controlfsm3:p2|count[1]                   ; Merged with vgawrapper:vgawrapper|vga:vga|controlfsm3:p1|count[1]         ;
+; vgawrapper:vgawrapper|vga:vga|controlfsm3:p2|count[0]                   ; Merged with vgawrapper:vgawrapper|vga:vga|controlfsm3:p1|count[0]         ;
+; vgawrapper:vgawrapper|vga:vga|controlfsm3:p2|state.LATCHPULSE           ; Merged with vgawrapper:vgawrapper|vga:vga|controlfsm3:p1|state.LATCHPULSE ;
+; vgawrapper:vgawrapper|vga:vga|controlfsm3:p2|state.WAITA                ; Merged with vgawrapper:vgawrapper|vga:vga|controlfsm3:p1|state.WAITA      ;
+; vgawrapper:vgawrapper|vga:vga|controlfsm3:p2|state.RIGHT                ; Merged with vgawrapper:vgawrapper|vga:vga|controlfsm3:p1|state.RIGHT      ;
+; vgawrapper:vgawrapper|vga:vga|controlfsm3:p2|state.LEFT                 ; Merged with vgawrapper:vgawrapper|vga:vga|controlfsm3:p1|state.LEFT       ;
+; vgawrapper:vgawrapper|vga:vga|controlfsm3:p2|state.DOWN                 ; Merged with vgawrapper:vgawrapper|vga:vga|controlfsm3:p1|state.DOWN       ;
+; vgawrapper:vgawrapper|vga:vga|controlfsm3:p2|state.UP                   ; Merged with vgawrapper:vgawrapper|vga:vga|controlfsm3:p1|state.UP         ;
+; vgawrapper:vgawrapper|vga:vga|controlfsm3:p2|state.WAITSTART            ; Merged with vgawrapper:vgawrapper|vga:vga|controlfsm3:p1|state.WAITSTART  ;
+; vgawrapper:vgawrapper|vga:vga|controlfsm3:p2|state.WAITSELECT           ; Merged with vgawrapper:vgawrapper|vga:vga|controlfsm3:p1|state.WAITSELECT ;
+; vgawrapper:vgawrapper|vga:vga|controlfsm3:p2|state.WAITB                ; Merged with vgawrapper:vgawrapper|vga:vga|controlfsm3:p1|state.WAITB      ;
+; Total Number of Removed Registers = 46                                  ;                                                                           ;
++-------------------------------------------------------------------------+---------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                                         ;
++-------------------------------------------------------------------------+--------------------+----------------------------------------------------------------------+
+; Register name                                                           ; Reason for Removal ; Registers Removed due to This Register                               ;
++-------------------------------------------------------------------------+--------------------+----------------------------------------------------------------------+
+; vgawrapper:vgawrapper|vga:vga|videoGen:videoGen|dirfsm:dir2|state.RIGHT ; Lost Fanouts       ; vgawrapper:vgawrapper|vga:vga|videoGen:videoGen|dirfsm:dir2|state.UP ;
+; vgawrapper:vgawrapper|vga:vga|videoGen:videoGen|dirfsm:dir|state.RIGHT  ; Lost Fanouts       ; vgawrapper:vgawrapper|vga:vga|videoGen:videoGen|dirfsm:dir|state.UP  ;
++-------------------------------------------------------------------------+--------------------+----------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 41    ;
+; Number of registers using Synchronous Clear  ; 11    ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 41    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 28    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                               ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------+
+; 9:1                ; 11 bits   ; 66 LEs        ; 11 LEs               ; 55 LEs                 ; Yes        ; |DE2_115|vgawrapper:vgawrapper|vga:vga|controlfsm3:p2|count[0] ;
+; 9:1                ; 11 bits   ; 66 LEs        ; 11 LEs               ; 55 LEs                 ; Yes        ; |DE2_115|vgawrapper:vgawrapper|vga:vga|controlfsm3:p1|count[7] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: vgawrapper:vgawrapper|vga:vga|controlfsm3:p1 ;
++----------------+-------+------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                             ;
++----------------+-------+------------------------------------------------------------------+
+; LATCHPULSE     ; 0000  ; Unsigned Binary                                                  ;
+; WAITA          ; 0001  ; Unsigned Binary                                                  ;
+; WAITB          ; 0010  ; Unsigned Binary                                                  ;
+; WAITSELECT     ; 0011  ; Unsigned Binary                                                  ;
+; WAITSTART      ; 0100  ; Unsigned Binary                                                  ;
+; UP             ; 0101  ; Unsigned Binary                                                  ;
+; DOWN           ; 0110  ; Unsigned Binary                                                  ;
+; LEFT           ; 0111  ; Unsigned Binary                                                  ;
+; RIGHT          ; 1000  ; Unsigned Binary                                                  ;
++----------------+-------+------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: vgawrapper:vgawrapper|vga:vga|controlfsm3:p2 ;
++----------------+-------+------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                             ;
++----------------+-------+------------------------------------------------------------------+
+; LATCHPULSE     ; 0000  ; Unsigned Binary                                                  ;
+; WAITA          ; 0001  ; Unsigned Binary                                                  ;
+; WAITB          ; 0010  ; Unsigned Binary                                                  ;
+; WAITSELECT     ; 0011  ; Unsigned Binary                                                  ;
+; WAITSTART      ; 0100  ; Unsigned Binary                                                  ;
+; UP             ; 0101  ; Unsigned Binary                                                  ;
+; DOWN           ; 0110  ; Unsigned Binary                                                  ;
+; LEFT           ; 0111  ; Unsigned Binary                                                  ;
+; RIGHT          ; 1000  ; Unsigned Binary                                                  ;
++----------------+-------+------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: vgawrapper:vgawrapper|vga:vga|vgaController:vgaCont ;
++----------------+------------+--------------------------------------------------------------------+
+; Parameter Name ; Value      ; Type                                                               ;
++----------------+------------+--------------------------------------------------------------------+
+; HBP            ; 0000110000 ; Unsigned Binary                                                    ;
+; HACTIVE        ; 1010000000 ; Unsigned Binary                                                    ;
+; HFP            ; 0000010000 ; Unsigned Binary                                                    ;
+; HSYN           ; 0001100000 ; Unsigned Binary                                                    ;
+; HMAX           ; 1100100000 ; Unsigned Binary                                                    ;
+; VBP            ; 0000100000 ; Unsigned Binary                                                    ;
+; VACTIVE        ; 0111100000 ; Unsigned Binary                                                    ;
+; VFP            ; 0000001011 ; Unsigned Binary                                                    ;
+; VSYN           ; 0000000010 ; Unsigned Binary                                                    ;
+; VMAX           ; 1000001101 ; Unsigned Binary                                                    ;
++----------------+------------+--------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: vgawrapper:vgawrapper|vga:vga|videoGen:videoGen|counter:counterx ;
++----------------+-------+--------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                 ;
++----------------+-------+--------------------------------------------------------------------------------------+
+; N              ; 11    ; Signed Integer                                                                       ;
+; Q              ; 56    ; Signed Integer                                                                       ;
+; L              ; 685   ; Signed Integer                                                                       ;
+; H              ; 50    ; Signed Integer                                                                       ;
++----------------+-------+--------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: vgawrapper:vgawrapper|vga:vga|videoGen:videoGen|counter:countery ;
++----------------+-------+--------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                 ;
++----------------+-------+--------------------------------------------------------------------------------------+
+; N              ; 10    ; Signed Integer                                                                       ;
+; Q              ; 40    ; Signed Integer                                                                       ;
+; L              ; 510   ; Signed Integer                                                                       ;
+; H              ; 35    ; Signed Integer                                                                       ;
++----------------+-------+--------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: vgawrapper:vgawrapper|vga:vga|videoGen:videoGen|counter:counter2x ;
++----------------+-------+---------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                  ;
++----------------+-------+---------------------------------------------------------------------------------------+
+; N              ; 11    ; Signed Integer                                                                        ;
+; Q              ; 56    ; Signed Integer                                                                        ;
+; L              ; 685   ; Signed Integer                                                                        ;
+; H              ; 50    ; Signed Integer                                                                        ;
++----------------+-------+---------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: vgawrapper:vgawrapper|vga:vga|videoGen:videoGen|counter:counter2y ;
++----------------+-------+---------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                  ;
++----------------+-------+---------------------------------------------------------------------------------------+
+; N              ; 10    ; Signed Integer                                                                        ;
+; Q              ; 400   ; Signed Integer                                                                        ;
+; L              ; 510   ; Signed Integer                                                                        ;
+; H              ; 35    ; Signed Integer                                                                        ;
++----------------+-------+---------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "vgawrapper:vgawrapper|vga:vga|videoGen:videoGen|graphics:graphics1"                                                                                                                   ;
++-----------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                                                                                                                          ;
++-----------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; clk       ; Input  ; Warning  ; Input port expression (8 bits) is wider than the input port (1 bits) it drives.  The 7 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; reset     ; Input  ; Warning  ; Input port expression (8 bits) is wider than the input port (1 bits) it drives.  The 7 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; p2trailx1 ; Input  ; Warning  ; Input port expression (8 bits) is smaller than the input port (10 bits) it drives.  Extra input bit(s) "p2trailx1[9..8]" will be connected to GND.                               ;
+; p2traily1 ; Input  ; Warning  ; Input port expression (1 bits) is smaller than the input port (10 bits) it drives.  Extra input bit(s) "p2traily1[9..1]" will be connected to GND.                               ;
+; trailx    ; Input  ; Warning  ; Input port expression (1 bits) is smaller than the input port (10 bits) it drives.  Extra input bit(s) "trailx[9..1]" will be connected to GND.                                  ;
+; r         ; Output ; Warning  ; Output or bidir port (8 bits) is smaller than the port expression (10 bits) it drives.  The 2 most-significant bit(s) in the port expression will be connected to GND.           ;
+; g         ; Output ; Warning  ; Output or bidir port (8 bits) is smaller than the port expression (10 bits) it drives.  The 2 most-significant bit(s) in the port expression will be connected to GND.           ;
+; b         ; Output ; Warning  ; Output or bidir port (8 bits) is smaller than the port expression (10 bits) it drives.  The 2 most-significant bit(s) in the port expression will be connected to GND.           ;
++-----------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "vgawrapper:vgawrapper|vga:vga|videoGen:videoGen|trail:p2t50"                          ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; traily ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; h      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; v      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; ox     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; oy     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "vgawrapper:vgawrapper|vga:vga|videoGen:videoGen|trail:t50"                          ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; h    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; v    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; ox   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; oy   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "vgawrapper:vgawrapper|vga:vga|videoGen:videoGen|counter:counter2x"                                                       ;
++------+--------+----------+--------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                                                                  ;
++------+--------+----------+--------------------------------------------------------------------------------------------------------------------------+
+; q    ; Output ; Warning  ; Output or bidir port (11 bits) is wider than the port expression (10 bits) it drives; bit(s) "q[10..10]" have no fanouts ;
++------+--------+----------+--------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "vgawrapper:vgawrapper|vga:vga|videoGen:videoGen|counter:counterx"                                                        ;
++------+--------+----------+--------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                                                                  ;
++------+--------+----------+--------------------------------------------------------------------------------------------------------------------------+
+; q    ; Output ; Warning  ; Output or bidir port (11 bits) is wider than the port expression (10 bits) it drives; bit(s) "q[10..10]" have no fanouts ;
++------+--------+----------+--------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "vgawrapper:vgawrapper|vga:vga"                                                                                                                                                        ;
++-----------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                                                                                                                          ;
++-----------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; serialin1 ; Input  ; Warning  ; Input port expression (8 bits) is wider than the input port (1 bits) it drives.  The 7 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; serialin2 ; Input  ; Warning  ; Input port expression (8 bits) is wider than the input port (1 bits) it drives.  The 7 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; g         ; Output ; Warning  ; Output or bidir port (8 bits) is wider than the port expression (1 bits) it drives; bit(s) "g[7..1]" have no fanouts                                                             ;
+; b         ; Output ; Warning  ; Output or bidir port (8 bits) is wider than the port expression (1 bits) it drives; bit(s) "b[7..1]" have no fanouts                                                             ;
++-----------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "vgawrapper:vgawrapper"                                                                                                                                                            ;
++------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                                                            ;
++------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; SW   ; Input ; Warning  ; Input port expression (18 bits) is wider than the input port (1 bits) it drives.  The 17 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; GPIO ; Bidir ; Warning  ; Output or bidir port (6 bits) is smaller than the port expression (7 bits) it drives.  The 1 most-significant bit(s) in the port expression will be connected to GND.              ;
++------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 407                         ;
+; cycloneiii_ff         ; 41                          ;
+;     CLR               ; 13                          ;
+;     ENA CLR           ; 17                          ;
+;     ENA CLR SCLR      ; 11                          ;
+; cycloneiii_io_obuf    ; 105                         ;
+; cycloneiii_lcell_comb ; 88                          ;
+;     arith             ; 28                          ;
+;         2 data inputs ; 28                          ;
+;     normal            ; 60                          ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 5                           ;
+;         2 data inputs ; 8                           ;
+;         3 data inputs ; 5                           ;
+;         4 data inputs ; 41                          ;
+;                       ;                             ;
+; Max LUT depth         ; 4.70                        ;
+; Average LUT depth     ; 2.13                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
+    Info: Processing started: Sat Jul  1 21:34:22 2023
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off DE2_115 -c DE2_115
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 14 of the 14 processors detected
+Info (12021): Found 15 design units, including 15 entities, in source file de2_115.sv
+    Info (12023): Found entity 1: DE2_115 File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 6
+    Info (12023): Found entity 2: vgawrapper File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 397
+    Info (12023): Found entity 3: countertb File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 419
+    Info (12023): Found entity 4: dirfsmtb File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 466
+    Info (12023): Found entity 5: vga File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 535
+    Info (12023): Found entity 6: vgaController File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 574
+    Info (12023): Found entity 7: videoGen File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 617
+    Info (12023): Found entity 8: counter File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 812
+    Info (12023): Found entity 9: graphics File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 830
+    Info (12023): Found entity 10: trail File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 1061
+    Info (12023): Found entity 11: dirfsm File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 1106
+    Info (12023): Found entity 12: slowclk1hz File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 1170
+    Info (12023): Found entity 13: slowclk100hz File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 1183
+    Info (12023): Found entity 14: slowclk10hz File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 1196
+    Info (12023): Found entity 15: controlfsm3 File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 1211
+Warning (10236): Verilog HDL Implicit Net warning at DE2_115.sv(632): created implicit net for "slwclk3" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 632
+Info (12127): Elaborating entity "DE2_115" for the top level hierarchy
+Warning (10034): Output port "LEDG" at DE2_115.sv(203) has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 203
+Warning (10034): Output port "LEDR" at DE2_115.sv(204) has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 204
+Warning (10034): Output port "HEX0" at DE2_115.sv(216) has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 216
+Warning (10034): Output port "HEX1" at DE2_115.sv(217) has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 217
+Warning (10034): Output port "HEX2" at DE2_115.sv(218) has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 218
+Warning (10034): Output port "HEX3" at DE2_115.sv(219) has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 219
+Warning (10034): Output port "HEX4" at DE2_115.sv(220) has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 220
+Warning (10034): Output port "HEX5" at DE2_115.sv(221) has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 221
+Warning (10034): Output port "HEX6" at DE2_115.sv(222) has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 222
+Warning (10034): Output port "HEX7" at DE2_115.sv(223) has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 223
+Warning (10034): Output port "ENET0_TX_DATA" at DE2_115.sv(291) has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 291
+Warning (10034): Output port "ENET1_TX_DATA" at DE2_115.sv(310) has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 310
+Warning (10034): Output port "OTG_ADDR" at DE2_115.sv(322) has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 322
+Warning (10034): Output port "OTG_DACK_N" at DE2_115.sv(324) has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 324
+Warning (10034): Output port "DRAM_ADDR" at DE2_115.sv(338) has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 338
+Warning (10034): Output port "DRAM_BA" at DE2_115.sv(339) has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 339
+Warning (10034): Output port "DRAM_DQM" at DE2_115.sv(345) has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 345
+Warning (10034): Output port "SRAM_ADDR" at DE2_115.sv(350) has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 350
+Warning (10034): Output port "FL_ADDR" at DE2_115.sv(359) has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 359
+Warning (10034): Output port "SMA_CLKOUT" at DE2_115.sv(200) has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 200
+Warning (10034): Output port "LCD_BLON" at DE2_115.sv(226) has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 226
+Warning (10034): Output port "LCD_EN" at DE2_115.sv(228) has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 228
+Warning (10034): Output port "LCD_ON" at DE2_115.sv(229) has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 229
+Warning (10034): Output port "LCD_RS" at DE2_115.sv(230) has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 230
+Warning (10034): Output port "LCD_RW" at DE2_115.sv(231) has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 231
+Warning (10034): Output port "UART_CTS" at DE2_115.sv(234) has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 234
+Warning (10034): Output port "UART_TXD" at DE2_115.sv(237) has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 237
+Warning (10034): Output port "SD_CLK" at DE2_115.sv(246) has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 246
+Warning (10034): Output port "AUD_DACDAT" at DE2_115.sv(265) has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 265
+Warning (10034): Output port "AUD_XCK" at DE2_115.sv(267) has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 267
+Warning (10034): Output port "EEP_I2C_SCLK" at DE2_115.sv(270) has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 270
+Warning (10034): Output port "I2C_SCLK" at DE2_115.sv(274) has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 274
+Warning (10034): Output port "ENET0_GTX_CLK" at DE2_115.sv(278) has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 278
+Warning (10034): Output port "ENET0_MDC" at DE2_115.sv(281) has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 281
+Warning (10034): Output port "ENET0_RST_N" at DE2_115.sv(283) has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 283
+Warning (10034): Output port "ENET0_TX_EN" at DE2_115.sv(292) has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 292
+Warning (10034): Output port "ENET0_TX_ER" at DE2_115.sv(293) has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 293
+Warning (10034): Output port "ENET1_GTX_CLK" at DE2_115.sv(297) has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 297
+Warning (10034): Output port "ENET1_MDC" at DE2_115.sv(300) has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 300
+Warning (10034): Output port "ENET1_RST_N" at DE2_115.sv(302) has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 302
+Warning (10034): Output port "ENET1_TX_EN" at DE2_115.sv(311) has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 311
+Warning (10034): Output port "ENET1_TX_ER" at DE2_115.sv(312) has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 312
+Warning (10034): Output port "TD_RESET_N" at DE2_115.sv(318) has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 318
+Warning (10034): Output port "OTG_CS_N" at DE2_115.sv(323) has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 323
+Warning (10034): Output port "OTG_RD_N" at DE2_115.sv(330) has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 330
+Warning (10034): Output port "OTG_RST_N" at DE2_115.sv(331) has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 331
+Warning (10034): Output port "OTG_WE_N" at DE2_115.sv(332) has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 332
+Warning (10034): Output port "DRAM_CAS_N" at DE2_115.sv(340) has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 340
+Warning (10034): Output port "DRAM_CKE" at DE2_115.sv(341) has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 341
+Warning (10034): Output port "DRAM_CLK" at DE2_115.sv(342) has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 342
+Warning (10034): Output port "DRAM_CS_N" at DE2_115.sv(343) has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 343
+Warning (10034): Output port "DRAM_RAS_N" at DE2_115.sv(346) has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 346
+Warning (10034): Output port "DRAM_WE_N" at DE2_115.sv(347) has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 347
+Warning (10034): Output port "SRAM_CE_N" at DE2_115.sv(351) has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 351
+Warning (10034): Output port "SRAM_LB_N" at DE2_115.sv(353) has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 353
+Warning (10034): Output port "SRAM_OE_N" at DE2_115.sv(354) has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 354
+Warning (10034): Output port "SRAM_UB_N" at DE2_115.sv(355) has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 355
+Warning (10034): Output port "SRAM_WE_N" at DE2_115.sv(356) has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 356
+Warning (10034): Output port "FL_CE_N" at DE2_115.sv(360) has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 360
+Warning (10034): Output port "FL_OE_N" at DE2_115.sv(362) has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 362
+Warning (10034): Output port "FL_RST_N" at DE2_115.sv(363) has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 363
+Warning (10034): Output port "FL_WE_N" at DE2_115.sv(365) has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 365
+Warning (10034): Output port "FL_WP_N" at DE2_115.sv(366) has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 366
+Info (12128): Elaborating entity "vgawrapper" for hierarchy "vgawrapper:vgawrapper" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 385
+Info (12128): Elaborating entity "vga" for hierarchy "vgawrapper:vgawrapper|vga:vga" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 413
+Info (12128): Elaborating entity "controlfsm3" for hierarchy "vgawrapper:vgawrapper|vga:vga|controlfsm3:p1" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 564
+Warning (10230): Verilog HDL assignment warning at DE2_115.sv(1253): truncated value with size 32 to match size of target (11) File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 1253
+Warning (10230): Verilog HDL assignment warning at DE2_115.sv(1266): truncated value with size 32 to match size of target (11) File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 1266
+Warning (10230): Verilog HDL assignment warning at DE2_115.sv(1280): truncated value with size 32 to match size of target (11) File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 1280
+Warning (10230): Verilog HDL assignment warning at DE2_115.sv(1301): truncated value with size 32 to match size of target (11) File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 1301
+Warning (10230): Verilog HDL assignment warning at DE2_115.sv(1322): truncated value with size 32 to match size of target (11) File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 1322
+Warning (10230): Verilog HDL assignment warning at DE2_115.sv(1343): truncated value with size 32 to match size of target (11) File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 1343
+Warning (10230): Verilog HDL assignment warning at DE2_115.sv(1366): truncated value with size 32 to match size of target (11) File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 1366
+Warning (10230): Verilog HDL assignment warning at DE2_115.sv(1389): truncated value with size 32 to match size of target (11) File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 1389
+Warning (10230): Verilog HDL assignment warning at DE2_115.sv(1412): truncated value with size 32 to match size of target (11) File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 1412
+Info (12128): Elaborating entity "vgaController" for hierarchy "vgawrapper:vgawrapper|vga:vga|vgaController:vgaCont" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 566
+Info (12128): Elaborating entity "videoGen" for hierarchy "vgawrapper:vgawrapper|vga:vga|videoGen:videoGen" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 569
+Info (12128): Elaborating entity "slowclk100hz" for hierarchy "vgawrapper:vgawrapper|vga:vga|videoGen:videoGen|slowclk100hz:slowclk1" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 631
+Warning (10240): Verilog HDL Always Construct warning at DE2_115.sv(1188): inferring latch(es) for variable "cnt", which holds its previous value in one or more paths through the always construct File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 1188
+Info (12128): Elaborating entity "slowclk1hz" for hierarchy "vgawrapper:vgawrapper|vga:vga|videoGen:videoGen|slowclk1hz:slowclk2" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 632
+Warning (10240): Verilog HDL Always Construct warning at DE2_115.sv(1175): inferring latch(es) for variable "cnt", which holds its previous value in one or more paths through the always construct File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 1175
+Info (12128): Elaborating entity "slowclk10hz" for hierarchy "vgawrapper:vgawrapper|vga:vga|videoGen:videoGen|slowclk10hz:slowclkram" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 633
+Warning (10240): Verilog HDL Always Construct warning at DE2_115.sv(1201): inferring latch(es) for variable "cnt", which holds its previous value in one or more paths through the always construct File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 1201
+Info (12128): Elaborating entity "counter" for hierarchy "vgawrapper:vgawrapper|vga:vga|videoGen:videoGen|counter:counterx" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 636
+Warning (10230): Verilog HDL assignment warning at DE2_115.sv(822): truncated value with size 32 to match size of target (11) File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 822
+Warning (10230): Verilog HDL assignment warning at DE2_115.sv(823): truncated value with size 32 to match size of target (11) File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 823
+Warning (10230): Verilog HDL assignment warning at DE2_115.sv(824): truncated value with size 32 to match size of target (11) File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 824
+Warning (10230): Verilog HDL assignment warning at DE2_115.sv(825): truncated value with size 32 to match size of target (11) File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 825
+Warning (10230): Verilog HDL assignment warning at DE2_115.sv(826): truncated value with size 32 to match size of target (11) File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 826
+Info (12128): Elaborating entity "counter" for hierarchy "vgawrapper:vgawrapper|vga:vga|videoGen:videoGen|counter:countery" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 637
+Warning (10230): Verilog HDL assignment warning at DE2_115.sv(822): truncated value with size 32 to match size of target (10) File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 822
+Warning (10230): Verilog HDL assignment warning at DE2_115.sv(823): truncated value with size 32 to match size of target (10) File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 823
+Warning (10230): Verilog HDL assignment warning at DE2_115.sv(824): truncated value with size 32 to match size of target (10) File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 824
+Warning (10230): Verilog HDL assignment warning at DE2_115.sv(825): truncated value with size 32 to match size of target (10) File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 825
+Warning (10230): Verilog HDL assignment warning at DE2_115.sv(826): truncated value with size 32 to match size of target (10) File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 826
+Info (12128): Elaborating entity "counter" for hierarchy "vgawrapper:vgawrapper|vga:vga|videoGen:videoGen|counter:counter2y" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 641
+Warning (10230): Verilog HDL assignment warning at DE2_115.sv(822): truncated value with size 32 to match size of target (10) File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 822
+Warning (10230): Verilog HDL assignment warning at DE2_115.sv(823): truncated value with size 32 to match size of target (10) File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 823
+Warning (10230): Verilog HDL assignment warning at DE2_115.sv(824): truncated value with size 32 to match size of target (10) File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 824
+Warning (10230): Verilog HDL assignment warning at DE2_115.sv(825): truncated value with size 32 to match size of target (10) File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 825
+Warning (10230): Verilog HDL assignment warning at DE2_115.sv(826): truncated value with size 32 to match size of target (10) File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 826
+Info (12128): Elaborating entity "dirfsm" for hierarchy "vgawrapper:vgawrapper|vga:vga|videoGen:videoGen|dirfsm:dir" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 644
+Info (12128): Elaborating entity "trail" for hierarchy "vgawrapper:vgawrapper|vga:vga|videoGen:videoGen|trail:t1" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 701
+Warning (10230): Verilog HDL assignment warning at DE2_115.sv(1071): truncated value with size 32 to match size of target (10) File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 1071
+Warning (10230): Verilog HDL assignment warning at DE2_115.sv(1076): truncated value with size 32 to match size of target (10) File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 1076
+Warning (10230): Verilog HDL assignment warning at DE2_115.sv(1081): truncated value with size 32 to match size of target (10) File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 1081
+Warning (10230): Verilog HDL assignment warning at DE2_115.sv(1087): truncated value with size 32 to match size of target (10) File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 1087
+Warning (10230): Verilog HDL assignment warning at DE2_115.sv(1092): truncated value with size 32 to match size of target (10) File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 1092
+Info (12128): Elaborating entity "graphics" for hierarchy "vgawrapper:vgawrapper|vga:vga|videoGen:videoGen|graphics:graphics1" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 807
+Warning (10230): Verilog HDL assignment warning at DE2_115.sv(840): truncated value with size 32 to match size of target (20) File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 840
+Warning (12241): 5 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13034): The following nodes have both tri-state and non-tri-state drivers
+    Warning (13035): Inserted always-enabled tri-state buffer between "EX_IO[0]" and its non-tri-state driver. File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 210
+    Warning (13035): Inserted always-enabled tri-state buffer between "EX_IO[2]" and its non-tri-state driver. File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 210
+    Warning (13035): Inserted always-enabled tri-state buffer between "EX_IO[3]" and its non-tri-state driver. File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 210
+    Warning (13035): Inserted always-enabled tri-state buffer between "EX_IO[4]" and its non-tri-state driver. File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 210
+Warning (13039): The following bidirectional pins have no drivers
+    Warning (13040): bidirectional pin "EX_IO[6]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 210
+    Warning (13040): bidirectional pin "LCD_DATA[0]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 227
+    Warning (13040): bidirectional pin "LCD_DATA[1]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 227
+    Warning (13040): bidirectional pin "LCD_DATA[2]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 227
+    Warning (13040): bidirectional pin "LCD_DATA[3]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 227
+    Warning (13040): bidirectional pin "LCD_DATA[4]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 227
+    Warning (13040): bidirectional pin "LCD_DATA[5]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 227
+    Warning (13040): bidirectional pin "LCD_DATA[6]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 227
+    Warning (13040): bidirectional pin "LCD_DATA[7]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 227
+    Warning (13040): bidirectional pin "PS2_CLK" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 240
+    Warning (13040): bidirectional pin "PS2_CLK2" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 241
+    Warning (13040): bidirectional pin "PS2_DAT" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 242
+    Warning (13040): bidirectional pin "PS2_DAT2" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 243
+    Warning (13040): bidirectional pin "SD_CMD" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 247
+    Warning (13040): bidirectional pin "SD_DAT[0]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 248
+    Warning (13040): bidirectional pin "SD_DAT[1]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 248
+    Warning (13040): bidirectional pin "SD_DAT[2]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 248
+    Warning (13040): bidirectional pin "SD_DAT[3]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 248
+    Warning (13040): bidirectional pin "AUD_ADCLRCK" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 263
+    Warning (13040): bidirectional pin "AUD_BCLK" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 264
+    Warning (13040): bidirectional pin "AUD_DACLRCK" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 266
+    Warning (13040): bidirectional pin "EEP_I2C_SDAT" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 271
+    Warning (13040): bidirectional pin "I2C_SDAT" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 275
+    Warning (13040): bidirectional pin "ENET0_MDIO" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 282
+    Warning (13040): bidirectional pin "ENET1_MDIO" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 301
+    Warning (13040): bidirectional pin "OTG_DATA[0]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 325
+    Warning (13040): bidirectional pin "OTG_DATA[1]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 325
+    Warning (13040): bidirectional pin "OTG_DATA[2]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 325
+    Warning (13040): bidirectional pin "OTG_DATA[3]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 325
+    Warning (13040): bidirectional pin "OTG_DATA[4]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 325
+    Warning (13040): bidirectional pin "OTG_DATA[5]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 325
+    Warning (13040): bidirectional pin "OTG_DATA[6]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 325
+    Warning (13040): bidirectional pin "OTG_DATA[7]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 325
+    Warning (13040): bidirectional pin "OTG_DATA[8]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 325
+    Warning (13040): bidirectional pin "OTG_DATA[9]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 325
+    Warning (13040): bidirectional pin "OTG_DATA[10]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 325
+    Warning (13040): bidirectional pin "OTG_DATA[11]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 325
+    Warning (13040): bidirectional pin "OTG_DATA[12]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 325
+    Warning (13040): bidirectional pin "OTG_DATA[13]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 325
+    Warning (13040): bidirectional pin "OTG_DATA[14]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 325
+    Warning (13040): bidirectional pin "OTG_DATA[15]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 325
+    Warning (13040): bidirectional pin "OTG_FSPEED" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 327
+    Warning (13040): bidirectional pin "OTG_LSPEED" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 329
+    Warning (13040): bidirectional pin "DRAM_DQ[0]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 344
+    Warning (13040): bidirectional pin "DRAM_DQ[1]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 344
+    Warning (13040): bidirectional pin "DRAM_DQ[2]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 344
+    Warning (13040): bidirectional pin "DRAM_DQ[3]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 344
+    Warning (13040): bidirectional pin "DRAM_DQ[4]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 344
+    Warning (13040): bidirectional pin "DRAM_DQ[5]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 344
+    Warning (13040): bidirectional pin "DRAM_DQ[6]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 344
+    Warning (13040): bidirectional pin "DRAM_DQ[7]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 344
+    Warning (13040): bidirectional pin "DRAM_DQ[8]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 344
+    Warning (13040): bidirectional pin "DRAM_DQ[9]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 344
+    Warning (13040): bidirectional pin "DRAM_DQ[10]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 344
+    Warning (13040): bidirectional pin "DRAM_DQ[11]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 344
+    Warning (13040): bidirectional pin "DRAM_DQ[12]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 344
+    Warning (13040): bidirectional pin "DRAM_DQ[13]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 344
+    Warning (13040): bidirectional pin "DRAM_DQ[14]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 344
+    Warning (13040): bidirectional pin "DRAM_DQ[15]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 344
+    Warning (13040): bidirectional pin "DRAM_DQ[16]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 344
+    Warning (13040): bidirectional pin "DRAM_DQ[17]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 344
+    Warning (13040): bidirectional pin "DRAM_DQ[18]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 344
+    Warning (13040): bidirectional pin "DRAM_DQ[19]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 344
+    Warning (13040): bidirectional pin "DRAM_DQ[20]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 344
+    Warning (13040): bidirectional pin "DRAM_DQ[21]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 344
+    Warning (13040): bidirectional pin "DRAM_DQ[22]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 344
+    Warning (13040): bidirectional pin "DRAM_DQ[23]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 344
+    Warning (13040): bidirectional pin "DRAM_DQ[24]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 344
+    Warning (13040): bidirectional pin "DRAM_DQ[25]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 344
+    Warning (13040): bidirectional pin "DRAM_DQ[26]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 344
+    Warning (13040): bidirectional pin "DRAM_DQ[27]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 344
+    Warning (13040): bidirectional pin "DRAM_DQ[28]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 344
+    Warning (13040): bidirectional pin "DRAM_DQ[29]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 344
+    Warning (13040): bidirectional pin "DRAM_DQ[30]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 344
+    Warning (13040): bidirectional pin "DRAM_DQ[31]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 344
+    Warning (13040): bidirectional pin "SRAM_DQ[0]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 352
+    Warning (13040): bidirectional pin "SRAM_DQ[1]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 352
+    Warning (13040): bidirectional pin "SRAM_DQ[2]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 352
+    Warning (13040): bidirectional pin "SRAM_DQ[3]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 352
+    Warning (13040): bidirectional pin "SRAM_DQ[4]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 352
+    Warning (13040): bidirectional pin "SRAM_DQ[5]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 352
+    Warning (13040): bidirectional pin "SRAM_DQ[6]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 352
+    Warning (13040): bidirectional pin "SRAM_DQ[7]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 352
+    Warning (13040): bidirectional pin "SRAM_DQ[8]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 352
+    Warning (13040): bidirectional pin "SRAM_DQ[9]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 352
+    Warning (13040): bidirectional pin "SRAM_DQ[10]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 352
+    Warning (13040): bidirectional pin "SRAM_DQ[11]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 352
+    Warning (13040): bidirectional pin "SRAM_DQ[12]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 352
+    Warning (13040): bidirectional pin "SRAM_DQ[13]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 352
+    Warning (13040): bidirectional pin "SRAM_DQ[14]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 352
+    Warning (13040): bidirectional pin "SRAM_DQ[15]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 352
+    Warning (13040): bidirectional pin "FL_DQ[0]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 361
+    Warning (13040): bidirectional pin "FL_DQ[1]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 361
+    Warning (13040): bidirectional pin "FL_DQ[2]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 361
+    Warning (13040): bidirectional pin "FL_DQ[3]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 361
+    Warning (13040): bidirectional pin "FL_DQ[4]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 361
+    Warning (13040): bidirectional pin "FL_DQ[5]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 361
+    Warning (13040): bidirectional pin "FL_DQ[6]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 361
+    Warning (13040): bidirectional pin "FL_DQ[7]" has no driver File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 361
+Warning (13032): The following tri-state nodes are fed by constants
+    Warning (13033): The pin "EX_IO[1]" is fed by GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 210
+    Warning (13033): The pin "EX_IO[5]" is fed by GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 210
+Warning (13009): TRI or OPNDRN buffers permanently enabled
+    Warning (13010): Node "EX_IO[0]~synth" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 210
+    Warning (13010): Node "EX_IO[2]~synth" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 210
+    Warning (13010): Node "EX_IO[3]~synth" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 210
+    Warning (13010): Node "EX_IO[4]~synth" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 210
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "SMA_CLKOUT" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 200
+    Warning (13410): Pin "LEDG[0]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 203
+    Warning (13410): Pin "LEDG[1]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 203
+    Warning (13410): Pin "LEDG[2]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 203
+    Warning (13410): Pin "LEDG[3]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 203
+    Warning (13410): Pin "LEDG[4]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 203
+    Warning (13410): Pin "LEDG[5]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 203
+    Warning (13410): Pin "LEDG[6]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 203
+    Warning (13410): Pin "LEDG[7]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 203
+    Warning (13410): Pin "LEDG[8]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 203
+    Warning (13410): Pin "LEDR[0]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 204
+    Warning (13410): Pin "LEDR[1]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 204
+    Warning (13410): Pin "LEDR[2]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 204
+    Warning (13410): Pin "LEDR[3]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 204
+    Warning (13410): Pin "LEDR[4]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 204
+    Warning (13410): Pin "LEDR[5]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 204
+    Warning (13410): Pin "LEDR[6]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 204
+    Warning (13410): Pin "LEDR[7]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 204
+    Warning (13410): Pin "LEDR[8]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 204
+    Warning (13410): Pin "LEDR[9]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 204
+    Warning (13410): Pin "LEDR[10]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 204
+    Warning (13410): Pin "LEDR[11]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 204
+    Warning (13410): Pin "LEDR[12]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 204
+    Warning (13410): Pin "LEDR[13]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 204
+    Warning (13410): Pin "LEDR[14]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 204
+    Warning (13410): Pin "LEDR[15]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 204
+    Warning (13410): Pin "LEDR[16]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 204
+    Warning (13410): Pin "LEDR[17]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 204
+    Warning (13410): Pin "HEX0[0]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 216
+    Warning (13410): Pin "HEX0[1]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 216
+    Warning (13410): Pin "HEX0[2]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 216
+    Warning (13410): Pin "HEX0[3]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 216
+    Warning (13410): Pin "HEX0[4]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 216
+    Warning (13410): Pin "HEX0[5]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 216
+    Warning (13410): Pin "HEX0[6]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 216
+    Warning (13410): Pin "HEX1[0]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 217
+    Warning (13410): Pin "HEX1[1]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 217
+    Warning (13410): Pin "HEX1[2]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 217
+    Warning (13410): Pin "HEX1[3]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 217
+    Warning (13410): Pin "HEX1[4]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 217
+    Warning (13410): Pin "HEX1[5]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 217
+    Warning (13410): Pin "HEX1[6]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 217
+    Warning (13410): Pin "HEX2[0]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 218
+    Warning (13410): Pin "HEX2[1]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 218
+    Warning (13410): Pin "HEX2[2]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 218
+    Warning (13410): Pin "HEX2[3]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 218
+    Warning (13410): Pin "HEX2[4]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 218
+    Warning (13410): Pin "HEX2[5]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 218
+    Warning (13410): Pin "HEX2[6]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 218
+    Warning (13410): Pin "HEX3[0]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 219
+    Warning (13410): Pin "HEX3[1]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 219
+    Warning (13410): Pin "HEX3[2]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 219
+    Warning (13410): Pin "HEX3[3]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 219
+    Warning (13410): Pin "HEX3[4]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 219
+    Warning (13410): Pin "HEX3[5]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 219
+    Warning (13410): Pin "HEX3[6]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 219
+    Warning (13410): Pin "HEX4[0]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 220
+    Warning (13410): Pin "HEX4[1]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 220
+    Warning (13410): Pin "HEX4[2]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 220
+    Warning (13410): Pin "HEX4[3]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 220
+    Warning (13410): Pin "HEX4[4]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 220
+    Warning (13410): Pin "HEX4[5]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 220
+    Warning (13410): Pin "HEX4[6]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 220
+    Warning (13410): Pin "HEX5[0]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 221
+    Warning (13410): Pin "HEX5[1]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 221
+    Warning (13410): Pin "HEX5[2]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 221
+    Warning (13410): Pin "HEX5[3]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 221
+    Warning (13410): Pin "HEX5[4]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 221
+    Warning (13410): Pin "HEX5[5]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 221
+    Warning (13410): Pin "HEX5[6]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 221
+    Warning (13410): Pin "HEX6[0]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 222
+    Warning (13410): Pin "HEX6[1]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 222
+    Warning (13410): Pin "HEX6[2]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 222
+    Warning (13410): Pin "HEX6[3]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 222
+    Warning (13410): Pin "HEX6[4]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 222
+    Warning (13410): Pin "HEX6[5]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 222
+    Warning (13410): Pin "HEX6[6]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 222
+    Warning (13410): Pin "HEX7[0]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 223
+    Warning (13410): Pin "HEX7[1]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 223
+    Warning (13410): Pin "HEX7[2]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 223
+    Warning (13410): Pin "HEX7[3]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 223
+    Warning (13410): Pin "HEX7[4]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 223
+    Warning (13410): Pin "HEX7[5]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 223
+    Warning (13410): Pin "HEX7[6]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 223
+    Warning (13410): Pin "LCD_BLON" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 226
+    Warning (13410): Pin "LCD_EN" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 228
+    Warning (13410): Pin "LCD_ON" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 229
+    Warning (13410): Pin "LCD_RS" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 230
+    Warning (13410): Pin "LCD_RW" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 231
+    Warning (13410): Pin "UART_CTS" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 234
+    Warning (13410): Pin "UART_TXD" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 237
+    Warning (13410): Pin "SD_CLK" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 246
+    Warning (13410): Pin "VGA_B[0]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 252
+    Warning (13410): Pin "VGA_B[1]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 252
+    Warning (13410): Pin "VGA_B[2]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 252
+    Warning (13410): Pin "VGA_B[3]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 252
+    Warning (13410): Pin "VGA_B[4]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 252
+    Warning (13410): Pin "VGA_B[5]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 252
+    Warning (13410): Pin "VGA_B[6]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 252
+    Warning (13410): Pin "VGA_B[7]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 252
+    Warning (13410): Pin "VGA_G[0]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 255
+    Warning (13410): Pin "VGA_G[1]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 255
+    Warning (13410): Pin "VGA_G[2]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 255
+    Warning (13410): Pin "VGA_G[3]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 255
+    Warning (13410): Pin "VGA_G[4]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 255
+    Warning (13410): Pin "VGA_G[5]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 255
+    Warning (13410): Pin "VGA_G[6]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 255
+    Warning (13410): Pin "VGA_G[7]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 255
+    Warning (13410): Pin "VGA_R[0]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 257
+    Warning (13410): Pin "VGA_R[1]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 257
+    Warning (13410): Pin "VGA_R[2]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 257
+    Warning (13410): Pin "VGA_R[3]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 257
+    Warning (13410): Pin "VGA_R[4]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 257
+    Warning (13410): Pin "VGA_R[5]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 257
+    Warning (13410): Pin "VGA_R[6]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 257
+    Warning (13410): Pin "VGA_R[7]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 257
+    Warning (13410): Pin "VGA_SYNC_N" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 258
+    Warning (13410): Pin "AUD_DACDAT" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 265
+    Warning (13410): Pin "AUD_XCK" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 267
+    Warning (13410): Pin "EEP_I2C_SCLK" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 270
+    Warning (13410): Pin "I2C_SCLK" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 274
+    Warning (13410): Pin "ENET0_GTX_CLK" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 278
+    Warning (13410): Pin "ENET0_MDC" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 281
+    Warning (13410): Pin "ENET0_RST_N" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 283
+    Warning (13410): Pin "ENET0_TX_DATA[0]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 291
+    Warning (13410): Pin "ENET0_TX_DATA[1]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 291
+    Warning (13410): Pin "ENET0_TX_DATA[2]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 291
+    Warning (13410): Pin "ENET0_TX_DATA[3]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 291
+    Warning (13410): Pin "ENET0_TX_EN" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 292
+    Warning (13410): Pin "ENET0_TX_ER" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 293
+    Warning (13410): Pin "ENET1_GTX_CLK" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 297
+    Warning (13410): Pin "ENET1_MDC" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 300
+    Warning (13410): Pin "ENET1_RST_N" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 302
+    Warning (13410): Pin "ENET1_TX_DATA[0]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 310
+    Warning (13410): Pin "ENET1_TX_DATA[1]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 310
+    Warning (13410): Pin "ENET1_TX_DATA[2]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 310
+    Warning (13410): Pin "ENET1_TX_DATA[3]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 310
+    Warning (13410): Pin "ENET1_TX_EN" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 311
+    Warning (13410): Pin "ENET1_TX_ER" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 312
+    Warning (13410): Pin "TD_RESET_N" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 318
+    Warning (13410): Pin "OTG_ADDR[0]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 322
+    Warning (13410): Pin "OTG_ADDR[1]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 322
+    Warning (13410): Pin "OTG_CS_N" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 323
+    Warning (13410): Pin "OTG_DACK_N[0]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 324
+    Warning (13410): Pin "OTG_DACK_N[1]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 324
+    Warning (13410): Pin "OTG_RD_N" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 330
+    Warning (13410): Pin "OTG_RST_N" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 331
+    Warning (13410): Pin "OTG_WE_N" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 332
+    Warning (13410): Pin "DRAM_ADDR[0]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 338
+    Warning (13410): Pin "DRAM_ADDR[1]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 338
+    Warning (13410): Pin "DRAM_ADDR[2]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 338
+    Warning (13410): Pin "DRAM_ADDR[3]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 338
+    Warning (13410): Pin "DRAM_ADDR[4]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 338
+    Warning (13410): Pin "DRAM_ADDR[5]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 338
+    Warning (13410): Pin "DRAM_ADDR[6]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 338
+    Warning (13410): Pin "DRAM_ADDR[7]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 338
+    Warning (13410): Pin "DRAM_ADDR[8]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 338
+    Warning (13410): Pin "DRAM_ADDR[9]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 338
+    Warning (13410): Pin "DRAM_ADDR[10]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 338
+    Warning (13410): Pin "DRAM_ADDR[11]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 338
+    Warning (13410): Pin "DRAM_ADDR[12]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 338
+    Warning (13410): Pin "DRAM_BA[0]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 339
+    Warning (13410): Pin "DRAM_BA[1]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 339
+    Warning (13410): Pin "DRAM_CAS_N" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 340
+    Warning (13410): Pin "DRAM_CKE" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 341
+    Warning (13410): Pin "DRAM_CLK" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 342
+    Warning (13410): Pin "DRAM_CS_N" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 343
+    Warning (13410): Pin "DRAM_DQM[0]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 345
+    Warning (13410): Pin "DRAM_DQM[1]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 345
+    Warning (13410): Pin "DRAM_DQM[2]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 345
+    Warning (13410): Pin "DRAM_DQM[3]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 345
+    Warning (13410): Pin "DRAM_RAS_N" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 346
+    Warning (13410): Pin "DRAM_WE_N" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 347
+    Warning (13410): Pin "SRAM_ADDR[0]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 350
+    Warning (13410): Pin "SRAM_ADDR[1]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 350
+    Warning (13410): Pin "SRAM_ADDR[2]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 350
+    Warning (13410): Pin "SRAM_ADDR[3]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 350
+    Warning (13410): Pin "SRAM_ADDR[4]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 350
+    Warning (13410): Pin "SRAM_ADDR[5]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 350
+    Warning (13410): Pin "SRAM_ADDR[6]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 350
+    Warning (13410): Pin "SRAM_ADDR[7]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 350
+    Warning (13410): Pin "SRAM_ADDR[8]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 350
+    Warning (13410): Pin "SRAM_ADDR[9]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 350
+    Warning (13410): Pin "SRAM_ADDR[10]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 350
+    Warning (13410): Pin "SRAM_ADDR[11]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 350
+    Warning (13410): Pin "SRAM_ADDR[12]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 350
+    Warning (13410): Pin "SRAM_ADDR[13]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 350
+    Warning (13410): Pin "SRAM_ADDR[14]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 350
+    Warning (13410): Pin "SRAM_ADDR[15]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 350
+    Warning (13410): Pin "SRAM_ADDR[16]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 350
+    Warning (13410): Pin "SRAM_ADDR[17]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 350
+    Warning (13410): Pin "SRAM_ADDR[18]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 350
+    Warning (13410): Pin "SRAM_ADDR[19]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 350
+    Warning (13410): Pin "SRAM_CE_N" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 351
+    Warning (13410): Pin "SRAM_LB_N" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 353
+    Warning (13410): Pin "SRAM_OE_N" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 354
+    Warning (13410): Pin "SRAM_UB_N" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 355
+    Warning (13410): Pin "SRAM_WE_N" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 356
+    Warning (13410): Pin "FL_ADDR[0]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 359
+    Warning (13410): Pin "FL_ADDR[1]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 359
+    Warning (13410): Pin "FL_ADDR[2]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 359
+    Warning (13410): Pin "FL_ADDR[3]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 359
+    Warning (13410): Pin "FL_ADDR[4]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 359
+    Warning (13410): Pin "FL_ADDR[5]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 359
+    Warning (13410): Pin "FL_ADDR[6]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 359
+    Warning (13410): Pin "FL_ADDR[7]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 359
+    Warning (13410): Pin "FL_ADDR[8]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 359
+    Warning (13410): Pin "FL_ADDR[9]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 359
+    Warning (13410): Pin "FL_ADDR[10]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 359
+    Warning (13410): Pin "FL_ADDR[11]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 359
+    Warning (13410): Pin "FL_ADDR[12]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 359
+    Warning (13410): Pin "FL_ADDR[13]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 359
+    Warning (13410): Pin "FL_ADDR[14]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 359
+    Warning (13410): Pin "FL_ADDR[15]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 359
+    Warning (13410): Pin "FL_ADDR[16]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 359
+    Warning (13410): Pin "FL_ADDR[17]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 359
+    Warning (13410): Pin "FL_ADDR[18]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 359
+    Warning (13410): Pin "FL_ADDR[19]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 359
+    Warning (13410): Pin "FL_ADDR[20]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 359
+    Warning (13410): Pin "FL_ADDR[21]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 359
+    Warning (13410): Pin "FL_ADDR[22]" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 359
+    Warning (13410): Pin "FL_CE_N" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 360
+    Warning (13410): Pin "FL_OE_N" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 362
+    Warning (13410): Pin "FL_RST_N" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 363
+    Warning (13410): Pin "FL_WE_N" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 365
+    Warning (13410): Pin "FL_WP_N" is stuck at GND File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 366
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 18 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file C:/Users/uchoa/Documents/evpro/DE2_115.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 70 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "CLOCK2_50" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 195
+    Warning (15610): No output dependent on input pin "CLOCK3_50" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 196
+    Warning (15610): No output dependent on input pin "SMA_CLKIN" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 199
+    Warning (15610): No output dependent on input pin "KEY[0]" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 207
+    Warning (15610): No output dependent on input pin "KEY[1]" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 207
+    Warning (15610): No output dependent on input pin "KEY[2]" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 207
+    Warning (15610): No output dependent on input pin "KEY[3]" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 207
+    Warning (15610): No output dependent on input pin "SW[1]" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 213
+    Warning (15610): No output dependent on input pin "SW[2]" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 213
+    Warning (15610): No output dependent on input pin "SW[3]" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 213
+    Warning (15610): No output dependent on input pin "SW[4]" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 213
+    Warning (15610): No output dependent on input pin "SW[5]" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 213
+    Warning (15610): No output dependent on input pin "SW[6]" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 213
+    Warning (15610): No output dependent on input pin "SW[7]" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 213
+    Warning (15610): No output dependent on input pin "SW[8]" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 213
+    Warning (15610): No output dependent on input pin "SW[9]" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 213
+    Warning (15610): No output dependent on input pin "SW[10]" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 213
+    Warning (15610): No output dependent on input pin "SW[11]" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 213
+    Warning (15610): No output dependent on input pin "SW[12]" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 213
+    Warning (15610): No output dependent on input pin "SW[13]" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 213
+    Warning (15610): No output dependent on input pin "SW[14]" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 213
+    Warning (15610): No output dependent on input pin "SW[15]" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 213
+    Warning (15610): No output dependent on input pin "SW[16]" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 213
+    Warning (15610): No output dependent on input pin "SW[17]" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 213
+    Warning (15610): No output dependent on input pin "UART_RTS" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 235
+    Warning (15610): No output dependent on input pin "UART_RXD" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 236
+    Warning (15610): No output dependent on input pin "SD_WP_N" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 249
+    Warning (15610): No output dependent on input pin "AUD_ADCDAT" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 262
+    Warning (15610): No output dependent on input pin "ENET0_INT_N" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 279
+    Warning (15610): No output dependent on input pin "ENET0_LINK100" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 280
+    Warning (15610): No output dependent on input pin "ENET0_RX_CLK" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 284
+    Warning (15610): No output dependent on input pin "ENET0_RX_COL" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 285
+    Warning (15610): No output dependent on input pin "ENET0_RX_CRS" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 286
+    Warning (15610): No output dependent on input pin "ENET0_RX_DATA[0]" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 287
+    Warning (15610): No output dependent on input pin "ENET0_RX_DATA[1]" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 287
+    Warning (15610): No output dependent on input pin "ENET0_RX_DATA[2]" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 287
+    Warning (15610): No output dependent on input pin "ENET0_RX_DATA[3]" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 287
+    Warning (15610): No output dependent on input pin "ENET0_RX_DV" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 288
+    Warning (15610): No output dependent on input pin "ENET0_RX_ER" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 289
+    Warning (15610): No output dependent on input pin "ENET0_TX_CLK" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 290
+    Warning (15610): No output dependent on input pin "ENETCLK_25" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 294
+    Warning (15610): No output dependent on input pin "ENET1_INT_N" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 298
+    Warning (15610): No output dependent on input pin "ENET1_LINK100" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 299
+    Warning (15610): No output dependent on input pin "ENET1_RX_CLK" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 303
+    Warning (15610): No output dependent on input pin "ENET1_RX_COL" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 304
+    Warning (15610): No output dependent on input pin "ENET1_RX_CRS" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 305
+    Warning (15610): No output dependent on input pin "ENET1_RX_DATA[0]" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 306
+    Warning (15610): No output dependent on input pin "ENET1_RX_DATA[1]" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 306
+    Warning (15610): No output dependent on input pin "ENET1_RX_DATA[2]" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 306
+    Warning (15610): No output dependent on input pin "ENET1_RX_DATA[3]" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 306
+    Warning (15610): No output dependent on input pin "ENET1_RX_DV" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 307
+    Warning (15610): No output dependent on input pin "ENET1_RX_ER" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 308
+    Warning (15610): No output dependent on input pin "ENET1_TX_CLK" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 309
+    Warning (15610): No output dependent on input pin "TD_CLK27" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 315
+    Warning (15610): No output dependent on input pin "TD_DATA[0]" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 316
+    Warning (15610): No output dependent on input pin "TD_DATA[1]" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 316
+    Warning (15610): No output dependent on input pin "TD_DATA[2]" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 316
+    Warning (15610): No output dependent on input pin "TD_DATA[3]" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 316
+    Warning (15610): No output dependent on input pin "TD_DATA[4]" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 316
+    Warning (15610): No output dependent on input pin "TD_DATA[5]" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 316
+    Warning (15610): No output dependent on input pin "TD_DATA[6]" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 316
+    Warning (15610): No output dependent on input pin "TD_DATA[7]" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 316
+    Warning (15610): No output dependent on input pin "TD_HS" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 317
+    Warning (15610): No output dependent on input pin "TD_VS" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 319
+    Warning (15610): No output dependent on input pin "OTG_DREQ[0]" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 326
+    Warning (15610): No output dependent on input pin "OTG_DREQ[1]" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 326
+    Warning (15610): No output dependent on input pin "OTG_INT[0]" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 328
+    Warning (15610): No output dependent on input pin "OTG_INT[1]" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 328
+    Warning (15610): No output dependent on input pin "IRDA_RXD" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 335
+    Warning (15610): No output dependent on input pin "FL_RY" File: C:/Users/uchoa/Documents/evpro/DE2_115.sv Line: 364
+Info (21057): Implemented 513 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 72 input pins
+    Info (21059): Implemented 230 output pins
+    Info (21060): Implemented 105 bidirectional pins
+    Info (21061): Implemented 106 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 510 warnings
+    Info: Peak virtual memory: 4862 megabytes
+    Info: Processing ended: Sat Jul  1 21:34:28 2023
+    Info: Elapsed time: 00:00:06
+    Info: Total CPU time (on all processors): 00:00:04
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/Users/uchoa/Documents/evpro/DE2_115.map.smsg.
+
+

@@ -1,0 +1,38 @@
+
+State Machine - |DE2_115|vgawrapper:vgawrapper|vga:vga|videoGen:videoGen|dirfsm:dir2|state
+Name state.DOWN state.UP state.RIGHT state.LEFT 
+state.RIGHT 0 0 0 0 
+state.LEFT 0 0 1 1 
+state.UP 0 1 1 0 
+state.DOWN 1 0 1 0 
+
+State Machine - |DE2_115|vgawrapper:vgawrapper|vga:vga|videoGen:videoGen|dirfsm:dir|state
+Name state.DOWN state.UP state.RIGHT state.LEFT 
+state.RIGHT 0 0 0 0 
+state.LEFT 0 0 1 1 
+state.UP 0 1 1 0 
+state.DOWN 1 0 1 0 
+
+State Machine - |DE2_115|vgawrapper:vgawrapper|vga:vga|controlfsm3:p2|state
+Name state.LEFT state.DOWN state.UP state.WAITSTART state.WAITSELECT state.WAITB state.WAITA state.LATCHPULSE state.RIGHT 
+state.LATCHPULSE 0 0 0 0 0 0 0 0 0 
+state.WAITA 0 0 0 0 0 0 1 1 0 
+state.WAITB 0 0 0 0 0 1 0 1 0 
+state.WAITSELECT 0 0 0 0 1 0 0 1 0 
+state.WAITSTART 0 0 0 1 0 0 0 1 0 
+state.UP 0 0 1 0 0 0 0 1 0 
+state.DOWN 0 1 0 0 0 0 0 1 0 
+state.LEFT 1 0 0 0 0 0 0 1 0 
+state.RIGHT 0 0 0 0 0 0 0 1 1 
+
+State Machine - |DE2_115|vgawrapper:vgawrapper|vga:vga|controlfsm3:p1|state
+Name state.LEFT state.DOWN state.UP state.WAITSTART state.WAITSELECT state.WAITB state.WAITA state.LATCHPULSE state.RIGHT 
+state.LATCHPULSE 0 0 0 0 0 0 0 0 0 
+state.WAITA 0 0 0 0 0 0 1 1 0 
+state.WAITB 0 0 0 0 0 1 0 1 0 
+state.WAITSELECT 0 0 0 0 1 0 0 1 0 
+state.WAITSTART 0 0 0 1 0 0 0 1 0 
+state.UP 0 0 1 0 0 0 0 1 0 
+state.DOWN 0 1 0 0 0 0 0 1 0 
+state.LEFT 1 0 0 0 0 0 0 1 0 
+state.RIGHT 0 0 0 0 0 0 0 1 1 
